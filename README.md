@@ -13,13 +13,19 @@ Instructions for setup
 7. To start the server:
 `go run cmd/compensation/server.go`
     The server would have started at "http://localhost:8080/comp_data/query". You can use cURL command on terminal or postman to make query requests. Eg.
-`curl --location 'http://localhost:8080/comp_data/query' \
---header 'Content-Type: application/json' \
---data '{"query":"query {\n  compensations(sortBy: TOTALCOMP_DESC) {\n    compensations {\n      id\n        timestamp\n        company\n        title\n        city\n        state\n        total_comp\n        signing_bonus\n        base_salary\n        annual_bonus\n        annual_stock_value\n        years_exp\n        additional_comments\n        gender\n        years_at_company\n    }\n    count\n    error {\n      message\n    }\n  }\n}","variables":{}}'`
+compensation get query
 
 `curl --location 'http://localhost:8080/comp_data/query' \
 --header 'Content-Type: application/json' \
 --data '{"query":"query {\n  compensation(id: \"1\") {\n    compensation {\n      id\n      company\n    }\n    error {\n      message\n    }\n  }\n}","variables":{}}'`
+
+compensation list query
+
+`curl --location 'http://localhost:8080/comp_data/query' \
+--header 'Content-Type: application/json' \
+--data '{"query":"query {\n  compensations(sortBy: TOTALCOMP_DESC) {\n    compensations {\n      id\n        timestamp\n        company\n        title\n        city\n        state\n        total_comp\n        signing_bonus\n        base_salary\n        annual_bonus\n        annual_stock_value\n        years_exp\n        additional_comments\n        gender\n        years_at_company\n    }\n    count\n    error {\n      message\n    }\n  }\n}","variables":{}}'`
+
+
 
 The graphQL schema files can be found at the location: internal/compensation/handler/graph/compensation/schema/compensation
  
