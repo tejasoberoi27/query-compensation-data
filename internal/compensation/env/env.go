@@ -8,6 +8,7 @@ import (
 
 type Env struct {
 	Postgres *postgres.Postgres
+	Host     string
 }
 
 func New(cfg config.Config) (*Env, error) {
@@ -18,5 +19,6 @@ func New(cfg config.Config) (*Env, error) {
 
 	return &Env{
 		Postgres: postgresEnv,
+		Host:     cfg.APIServer.Port,
 	}, nil
 }

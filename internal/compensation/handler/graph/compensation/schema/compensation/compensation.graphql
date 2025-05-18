@@ -1,0 +1,23 @@
+"""A record representing individual compensation data."""
+type Compensation {
+    id: ID!
+    timestamp: String!
+    company: String
+    title: String
+    city: String
+    state: String
+    total_comp: Float
+    signing_bonus: Float
+    base_salary: Float
+    annual_bonus: Float
+    annual_stock_value: Float
+    years_exp: Float
+    additional_comments: String
+    gender: Gender
+    years_at_company: Float
+}
+
+enum Gender {
+    MALE
+    FEMALE
+}

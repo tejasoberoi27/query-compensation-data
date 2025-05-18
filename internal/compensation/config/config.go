@@ -13,8 +13,13 @@ type Postgres struct {
 	Password string `toml:"password" json:"password" default:"root" env:"PASSWORD"`
 }
 
+type APIServer struct {
+	Port string `toml:"port" json:"port" default:"8080" env:"PORT"`
+}
+
 type Config struct {
-	Postgres Postgres `toml:"postgres" env:"POSTGRES"`
+	Postgres  Postgres  `toml:"postgres" env:"POSTGRES"`
+	APIServer APIServer `toml:"api_server" env:"API_SERVER"`
 }
 
 func New() (Config, error) {

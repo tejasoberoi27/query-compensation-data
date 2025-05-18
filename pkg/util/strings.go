@@ -10,3 +10,11 @@ func ContainsDigit(s string) bool {
 	}
 	return false
 }
+
+func StringToStringPtr(s string) *string {
+	return &s
+}
+
+func Float64ToFloat64Ptr(f float64) *float64 {
+	return &f
+}
