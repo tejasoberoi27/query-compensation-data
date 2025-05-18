@@ -1,0 +1,15 @@
+schema:
+  - internal/compensation/handler/graph/compensation/schema/**/*.graphql
+
+skip_mod_tidy: true
+
+exec:
+  filename: internal/compensation/handler/graph/compensation/generated/generated.go
+  package: generated
+
+model:
+  filename: internal/compensation/handler/graph/compensation/model/models_gen.go
+  package: model
+
+resolver:
+  filename: internal/compensation/handler/graph/compensation/resolver.go

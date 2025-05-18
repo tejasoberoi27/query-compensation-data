@@ -1,0 +1,14 @@
+type Query {
+    compensation(id: ID!): CompensationResult!
+}
+
+# Compensation query (single item)
+type CompensationResult {
+    compensation: Compensation
+    error: CompensationError
+}
+
+# Common error wrapper
+type CompensationError {
+    message: String!
+}

@@ -1,0 +1,44 @@
+extend type Query {
+    """
+    List compensation records with optional filters and pagination.
+    Example:
+    {
+    compensations(titleContains: "Engineer", city: "New York", limit: 10, offset: 0) {
+    id
+    company
+    totalComp
+    }
+    }
+    """
+    compensations(
+        titleContains: String
+        city: String
+        state: String
+        company: String
+        minTotalComp: Float
+        maxTotalComp: Float
+        sortBy: CompensationSort = TIMESTAMP_DESC
+        limit: Int = 50
+        offset: Int = 0
+    ): CompensationsResult!
+}
+
+
+
+# Compensation list query (with count and pagination)
+type CompensationsResult {
+    compensations: [Compensation!]!
+    count: Int!
+    error: CompensationError
+}
+
+
+"""Enum to control sorting behavior in compensation list queries."""
+enum CompensationSort {
+    TIMESTAMP_ASC
+    TIMESTAMP_DESC
+    TOTALCOMP_ASC
+    TOTALCOMP_DESC
+}
+
+

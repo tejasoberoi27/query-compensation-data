@@ -16,3 +16,7 @@ compose-up: ### Run docker-compose
 compose-down: ### Down docker-compose
 	docker-compose down --remove-orphans
 .PHONY: compose-down
+
+.PHONY: gqlgen
+gqlgen: ## generate graphql server
+	go run github.com/99designs/gqlgen --verbose --config ./gqlgen_compensation.yml
