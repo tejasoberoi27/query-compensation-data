@@ -1,6 +1,6 @@
 # 📊 Query Compensation Data
 
-A **read-only GraphQL API** that returns one or more records from a static set of compensation data.
+A tool which helps to query compensation data based on different filters and sorting mechanisms using GraphQL, PostgreSQL and Golang.
 
 ---
 
